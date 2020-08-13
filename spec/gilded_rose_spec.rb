@@ -71,9 +71,9 @@ describe GildedRose do
   describe "#Sulfuras_items" do
 
     it 'are the only products allowed to be above 50 and always stays at 80' do
-      items = [Item.new("Sulfuras, Hand of Ragnaros",0,80)]
+      items = [Item.new("Sulfuras",0,80)]
       GildedRose.new(items).update_quality
-      expect(items[0].quality).to eq 79
+      expect(items[0].quality).to eq 80
 
     end
 

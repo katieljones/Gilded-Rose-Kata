@@ -6,6 +6,7 @@ class GildedRose
 
   def update_quality
     @items.each do |item|
+      return if item.name == "Sulfuras"
       if item.name == "Aged Brie"
         item.quality += 1 if item.quality < 50
         if item.sell_in < 0
@@ -38,8 +39,6 @@ class GildedRose
   end
 
 end
-
-
 
 class Item
   attr_accessor :name, :sell_in, :quality
