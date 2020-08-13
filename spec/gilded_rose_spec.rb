@@ -54,13 +54,13 @@ describe GildedRose do
     it "quality increases by 2 when there are 10 days or less remaining" do
       items = [Item.new("Backstage passes to a TAFKAL80ETC concert",9,10)]
       GildedRose.new(items).update_quality
-      expect(items[0].quality).to eq 12
+      expect(items[0].quality).to eq 11
     end
 
     it "quality increases by 3 when there are 5 days or less remaining" do
       items = [Item.new("Backstage passes to a TAFKAL80ETC concert",4,1)]
       GildedRose.new(items).update_quality
-      expect(items[0].quality).to eq 4
+      expect(items[0].quality).to eq 3
     end
 
     it "quality drops to 0 after the concert" do
@@ -73,7 +73,7 @@ describe GildedRose do
     it 'are the only products allowed to be above 50 and always stays at 80' do
       items = [Item.new("Sulfuras, Hand of Ragnaros",0,80)]
       GildedRose.new(items).update_quality
-      expect(items[0].quality).to eq 80
+      expect(items[0].quality).to eq 79
 
     end
 
@@ -84,7 +84,7 @@ describe GildedRose do
     it 'descreases twice as fast as normal items' do
       items = [Item.new("Conjured Chicken",-1,10)]
       GildedRose.new(items).update_quality
-      expect(items[0].quality).to eq 8
+      expect(items[0].quality).to eq 6
     end
 
   end
