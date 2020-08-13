@@ -7,7 +7,7 @@ class GildedRose
   def update_quality
     @items.each do |item|
       update_item(item)
-    end 
+    end
 
       def update_item(item)
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
@@ -17,18 +17,13 @@ class GildedRose
           end
         end
       else
-        if item.quality < 50
-          item.quality = item.quality + 1
+        increase_quality
           if item.name == "Backstage passes to a TAFKAL80ETC concert"
             if item.sell_in < 11
-              if item.quality < 50
-                item.quality = item.quality + 1
-              end
+              increase_quality
             end
             if item.sell_in < 6
-              if item.quality < 50
-                item.quality = item.quality + 1
-              end
+              increase_quality
             end
           end
         end
@@ -45,14 +40,18 @@ class GildedRose
               end
             end
           else
-            item.quality = item.quality - item.quality
+            item.quality -= item.quality
           end
         else
-          if item.quality < 50
-            item.quality = item.quality + 1
-          end
+          increase_quality
         end
       end
+    end
+  end
+
+  def increase_quality
+    if item.quality < 50
+      item.quality = item.quality + 1
     end
   end
 end
